@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% block title %}Интернет-магазин телефонов{% endblock %}
 {%  block LinkViewMain %}secondary{% endblock %}
 {%  block LinkViewProduct %}white{% endblock %}
 {%  block LinkView3 %}white{% endblock %}
@@ -153,26 +154,26 @@
   </div>
 
 <div class="container px-4 py-5" id="custom-cards">
-    <h2 class="pb-2 border-bottom">Custom cards</h2><br>
+    <h2 class="pb-2 border-bottom">Popular phones</h2><br>
     
       <div class="row row-cols-lg-3 align-items-stretch g-4 py-5 p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">   
+        {% for value in phones %}
         <div class="col">
             <div class="product-wrap ">
                 <div class="product-item">
-                  <img src="https://asset1.ee.co.uk/medias/iphone-12-5g-64gb-purple-desktop-detail-2-Format-976?context=bWFzdGVyfHJvb3R8MzcyODkxfGltYWdlL3BuZ3xzeXMtbWFzdGVyL3Jvb3QvaDRmL2g5ZC85NjQ2MDQ1MTM0ODc4L2lwaG9uZS0xMi01Zy02NGdiLXB1cnBsZS1kZXNrdG9wLWRldGFpbC0yX0Zvcm1hdC05NzZ8MjFiMjI2ZDMzMzNlZjQ3ODBjZmY2NjI5NzU4MDc3YmFmMGM5MzE0NWRjNmU0NTc1MzA5OTg2NGU2NTBmYjA1YQ">
+                  <img src="{{ value.url }}">
                   <div class="product-buttons">
                     <a href="" class="button">В корзину</a>
                   </div>
                 </div>
                 <div class="product-title">
-                  <a href="">Iphone 10S+</a>
-                  <span class="product-price">$ 1999</span>
+                  <a href="">{{ value.name }}</a>
+                  <span class="product-price">$ {{ value.cost }}</span>
                 </div>
             </div> 
         </div> 
-
-        
-        
+        {% endfor %} 
+      </div>
 </div>
 
 

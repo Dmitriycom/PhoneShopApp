@@ -1,3 +1,15 @@
+from statistics import mode
+from tabnanny import verbose
 from django.db import models
 
-# Create your models here.
+class TopPhone(models.Model):
+    url = models.URLField('Ссылка')
+    name = models.CharField('Название', max_length=50)
+    cost = models.IntegerField('Цена')
+
+    def __str__(self) -> str:
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Популярный телефон'
+        verbose_name_plural = 'Популярные телефоны'
