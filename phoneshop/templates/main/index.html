@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{%  block LinkViewMain %}secondary{% endblock %}
+{%  block LinkViewProduct %}white{% endblock %}
+{%  block LinkView3 %}white{% endblock %}
+{%  block LinkViewReviews %}white{% endblock %}
+{%  block LinkViewAbout %}white{% endblock %}
+
+{% block content %}
+<style>
+    * {
+   box-sizing: border-box;
+}
+.product-wrap {
+   width: 400px;
+   margin: 0 auto;
+   background: white;
+   padding: 0 0 20px;
+   text-align: center;
+   font-size: 14px;
+   text-transform: uppercase;
+}
+.product-item {
+   position: relative;
+   overflow: hidden;
+}
+.product-wrap img {
+   display: block;
+   width: 100%;
+}
+.product-buttons {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, .8);
+   opacity: 0;
+   transition: .3s ease-in-out;
+}
+.button {
+   text-decoration: none;
+   color: #c0a97a;
+   font-size: 12px;
+   width: 140px;
+   height: 40px;
+   line-height: 40px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   border: 2px solid #c0a97a;
+   transform: translate(-50%, -50%) scale(0);
+   transition: .3s ease-in-out;
+}
+.button:before {
+   font-family: FontAwesome;
+   margin-right: 10px;
+}
+.product-item:hover .product-buttons {
+   opacity: 1;
+}
+.product-item:hover .button {
+   transform: translate(-50%, -50%) scale(1);
+}
+.button:hover {
+   background: black;
+}
+.product-title {
+   color: #5e5e5e;
+}
+.product-title a {
+   text-decoration: none;
+   color: #2e2e2e;
+   font-weight: 600;
+   margin: 15px 0 5px;
+   padding-bottom: 7px;
+   display: block;
+   position: relative;
+   transition: .3s ease-in-out;
+}
+.product-title a:after {
+   content: "";
+   position: absolute;
+   width: 40px;
+   height: 2px;
+   background: #2e2e2e;
+   left: 50%;
+   margin-left: -20px;
+   bottom: 0;
+   transition: .3s ease-in-out;
+}
+.product-title a:hover {
+   color: #c0a97a;
+}
+.product-title:hover a:after {
+   background: #c0a97a;
+}
+.product-price {
+   font-size: 20px;
+   color: #c98600;
+   font-weight: 700;
+}
+</style>
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item carousel-item-next carousel-item-start">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="https://asset1.ee.co.uk/medias/iphone-12-5g-64gb-purple-desktop-detail-2-Format-976?context=bWFzdGVyfHJvb3R8MzcyODkxfGltYWdlL3BuZ3xzeXMtbWFzdGVyL3Jvb3QvaDRmL2g5ZC85NjQ2MDQ1MTM0ODc4L2lwaG9uZS0xMi01Zy02NGdiLXB1cnBsZS1kZXNrdG9wLWRldGFpbC0yX0Zvcm1hdC05NzZ8MjFiMjI2ZDMzMzNlZjQ3ODBjZmY2NjI5NzU4MDc3YmFmMGM5MzE0NWRjNmU0NTc1MzA5OTg2NGU2NTBmYjA1YQ" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+        <div class="container">
+          <div class="carousel-caption text-start bg">
+            <h1>Example headline.</h1>
+            <p>Some representative placeholder content for the first slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Another example headline.</h1>
+            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item active carousel-item-start">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure.</h1>
+            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Custom cards</h2><br>
+    
+      <div class="row row-cols-lg-3 align-items-stretch g-4 py-5 p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">   
+        <div class="col">
+            <div class="product-wrap ">
+                <div class="product-item">
+                  <img src="https://asset1.ee.co.uk/medias/iphone-12-5g-64gb-purple-desktop-detail-2-Format-976?context=bWFzdGVyfHJvb3R8MzcyODkxfGltYWdlL3BuZ3xzeXMtbWFzdGVyL3Jvb3QvaDRmL2g5ZC85NjQ2MDQ1MTM0ODc4L2lwaG9uZS0xMi01Zy02NGdiLXB1cnBsZS1kZXNrdG9wLWRldGFpbC0yX0Zvcm1hdC05NzZ8MjFiMjI2ZDMzMzNlZjQ3ODBjZmY2NjI5NzU4MDc3YmFmMGM5MzE0NWRjNmU0NTc1MzA5OTg2NGU2NTBmYjA1YQ">
+                  <div class="product-buttons">
+                    <a href="" class="button">В корзину</a>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <a href="">Iphone 10S+</a>
+                  <span class="product-price">$ 1999</span>
+                </div>
+            </div> 
+        </div> 
+
+        
+        
+</div>
+
+
+{% endblock %}
