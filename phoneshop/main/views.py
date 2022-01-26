@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from .models import TopPhone
+from .models import TopPhone, ImageCarousel
 
 
 def index(request):
     phones = TopPhone.objects.all()
-    return render(request, "main/index.html", {'phones': phones})
+    firstimg = ImageCarousel.objects.first
+    return render(request, "main/index.html", {'phones': phones, "firstimg": firstimg })
 
 
 def product(request):
