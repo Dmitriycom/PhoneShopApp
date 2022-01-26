@@ -21,3 +21,17 @@ class ImageCarousel(models.Model):
     url = models.URLField('Ссылка')
     name = models.CharField('Название', max_length=50)
     description = models.TextField('Описание', max_length=250)
+
+
+class ProductCatalog(models.Model):
+    url = models.URLField('Ссылка')
+    name = models.CharField('Название', max_length=50)
+    description = models.TextField('Описание')
+    cost = models.IntegerField('Цена')
+
+    def __str__(self) -> str:
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Каталог товара'
+        verbose_name_plural = 'Каталог товара'

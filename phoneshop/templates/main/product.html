@@ -12,8 +12,8 @@
 
 .wrapper {
   background-color: white;
-  height: 700px;
-  width: 950px;
+  height: 730px;
+  width: 970px;
   margin: 50px auto;
   border-radius: 7px 7px 7px 7px;
   -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
@@ -29,36 +29,32 @@
 }
 
 .product-img img {
+
   border-radius: 7px 0 0 7px;
 }
 
 .product-info {
   float: left;
-  height: 650px;
-  width: 350px;
+  height: 665px;
+  width: 340px;
   border-radius: 0 7px 10px 7px;
   background-color: #ffffff;
 }
 
 .product-text {
-  height: 300px;
-  width: 327px;
+  height: 90px;
+  width: 340px;
 }
 
 .product-text h1 {
   margin: 0 0 0 38px;
-  padding-top: 52px;
+  padding-top: 20px;
   font-size: 34px;
   color: #474747;
 }
 
-.product-text h1,
-.product-price-btn p {
-
-}
-
 .product-text h2 {
-  margin: 0 0 47px 38px;
+  margin: 5px 0 47px 38px;
   font-size: 13px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
@@ -67,7 +63,7 @@
   letter-spacing: 0.2em;
 }
 
-.product-text p {
+.product-text p span {
   max-height: 450px;
   max-width: 250px;
   margin: 0 0 0 38px;
@@ -81,7 +77,7 @@
 .product-price-btn {
   height: 103px;
   width: 327px;
-  margin-top: 320px;
+  margin-top: 70px;
   position: relative;
 }
 
@@ -102,6 +98,18 @@ span {
   height: 50px;
   font-family: 'Suranna', serif;
   font-size: 34px;
+  color: black;
+}
+pre{
+  margin: 10px 0 47px 38px;
+  font-size: 11px;
+  max-width: 310px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000000;
+  letter-spacing: 0.2em;
+
 }
 
 .product-price-btn button {
@@ -109,7 +117,6 @@ span {
   display: inline-block;
   height: 50px;
   width: 176px;
-  margin: 0 40px 0 16px;
   box-sizing: border-box;
   border: transparent;
   border-radius: 60px;
@@ -120,7 +127,7 @@ span {
   color: #ffffff;
   cursor: pointer;
   outline: none;
-  margin-right: 20px;
+  margin-right: 5px;
 }
 
 .product-price-btn button:hover {
@@ -129,24 +136,25 @@ span {
 body{
     background-color: #040c18;
 }
-.mgtop{
+.mgt{
     padding-top: 15px;
 }
 
 </style>
 
 <div class="wrapper">
-    <div class="product-img mt-4">
-      <img src="https://filearchive.cnews.ru/img/news/2022/01/21/2080452.jpg" height="650" width="600">
+    <div class="product-img mt-5">
+      <img src="{{ phone.url }}" height="650" width="600">
     </div>
-    <div class="product-info">
-      <div class="product-text">
-        <h1>{{name}}</h1>
+    <div class="product-info shadow-lg mt-5 mr-2 bg-body rounded">
+      <div class="product-text bg-danger text-white">
+        <h1 class="text-white">{{ phone.name }}</h1>
         <h2>iPhone. Просто. Нереально.</h2>
-        <p>{{ description }}</p>
-      </div>
+        </div>
+        <pre>{{ phone.description }}</pre>
+      
       <div class="product-price-btn">
-        <p class="mgtop"><span class="bg-warning">{{ cost }$</span></p>
+        <p class="mgt"><span class="bg-warning">{{ phone.cost}} $</span></p>
         <button type="button" class="btn btn-dark">Купить</button>
       </div>
     </div>
