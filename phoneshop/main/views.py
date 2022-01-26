@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import TopPhone, ImageCarousel
+from .models import TopPhone, ImageCarousel 
 
 
 def index(request):
@@ -8,7 +8,8 @@ def index(request):
     return render(request, "main/index.html", {'phones': phones, "firstimg": firstimg })
 
 
-def product(request):
+def product(request, productid=0):
+    output = "<h2>Product № {0}</h2>".format(productid)
     return render(request, "main/product.html")
 
     
@@ -18,3 +19,4 @@ def reviews(request):
 
 def about(request):
     return render(request, "main/about.html")
+

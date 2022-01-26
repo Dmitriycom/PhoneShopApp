@@ -6,6 +6,7 @@ urlpatterns = [
     re_path(r'admin/', admin.site.urls),
     re_path(r'^$', views.index, name='home'),
     re_path(r'^product$', views.product, name='product'),
+    re_path(r'^product/(?P<productid>\d+)/', views.product, name='product'),
     re_path(r'^reviews$', views.reviews, name='reviews'),
     re_path(r'^about$', views.about, name='about'),
 ]
