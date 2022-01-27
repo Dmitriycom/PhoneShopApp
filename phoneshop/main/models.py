@@ -8,6 +8,7 @@ class TopPhone(models.Model):
     url = models.URLField('Ссылка')
     name = models.CharField('Название', max_length=50)
     cost = models.IntegerField('Цена')
+    urltoprodust = models.CharField('Ссылка к товару', default="product", max_length=100)
 
     def __str__(self) -> str:
         return self.name
@@ -30,7 +31,7 @@ class ProductCatalog(models.Model):
     cost = models.IntegerField('Цена')
 
     def __str__(self) -> str:
-        return self.name
+        return self.url
     
     class Meta:
         verbose_name = 'Каталог товара'

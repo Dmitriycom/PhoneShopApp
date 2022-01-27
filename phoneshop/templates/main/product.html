@@ -142,22 +142,58 @@ body{
 
 </style>
 
-<div class="wrapper">
-    <div class="product-img mt-5">
-      <img src="{{ phone.url }}" height="650" width="600">
-    </div>
-    <div class="product-info shadow-lg mt-5 mr-2 bg-body rounded">
-      <div class="product-text bg-danger text-white">
-        <h1 class="text-white">{{ phone.name }}</h1>
-        <h2>iPhone. Просто. Нереально.</h2>
-        </div>
-        <pre>{{ phone.description }}</pre>
-      
-      <div class="product-price-btn">
-        <p class="mgt"><span class="bg-warning">{{ phone.cost}} $</span></p>
-        <button type="button" class="btn btn-dark">Купить</button>
+  <div id="carouselExampleControls" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active" >
+        <div class="wrapper">
+            <div class="product-img mt-5">
+              <img src="{{ phone.url }}" height="650" width="600">
+            </div>
+            <div class="product-info shadow-lg mt-5 mr-2 bg-body rounded">
+              <div class="product-text bg-danger text-white">
+                <h1 class="text-white">{{ phone.name }}</h1>
+                <h2>iPhone. Просто. Нереально.</h2>
+                </div>
+                <pre>{{ phone.description }}</pre>
+              
+              <div class="product-price-btn">
+                <p class="mgt"><span class="bg-warning">{{ phone.cost}} $</span></p>
+                <button type="button" class="btn btn-dark">Купить</button>
+              </div>
+            </div>
+          </div>
       </div>
+      {% for phone in phones %}
+      <div class="carousel-item">
+        <div class="wrapper">
+            <div class="product-img mt-5">
+              <img src="{{ phone.url }}" height="650" width="600">
+            </div>
+            <div class="product-info shadow-lg mt-5 mr-2 bg-body rounded">
+              <div class="product-text bg-danger text-white">
+                <h1 class="text-white">{{ phone.name }}</h1>
+                <h2>iPhone. Просто. Нереально.</h2>
+                </div>
+                <pre>{{ phone.description }}</pre>
+              
+              <div class="product-price-btn">
+                <p class="mgt"><span class="bg-warning">{{ phone.cost}} $</span></p>
+                <button type="button" class="btn btn-dark">Купить</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 
 {% endblock %}
