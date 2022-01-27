@@ -139,7 +139,7 @@ button .liquid {
  left: 0;
  width: 100%;
  height: 200px;
- background: #fff349;
+ background: #FCC20A;
  box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
  transition: .5s;
 }
@@ -208,28 +208,61 @@ button:hover .liquid {
 <div class="container mt-2">
     <div class="row mb-3">
         <div class="col-6 themed-grid-col">
-
+            {% for com in comments %}
             <div class="review mb-3 shadow bg-body rounded" >
                 <div class="info pt-3"> 
-                    <h5>Dmitriy</h5>
-                    <h7>11.11.2019</h7>
+                    <h5>{{ com.name }}</h5>
+                    <h7>{{ com.date }}</h7>
                     <div class="rating-result">
+                    {% if com.grade == 1 %}
+                        <span class="active"></span>	
+                        <span class=""></span>    
+                        <span class=""></span>  
+                        <span class=""></span>    
+                        <span class=""></span>    
+                    {% elif com.grade == 2 %}
+                        <span class="active"></span>	
+                        <span class="active"></span>    
+                        <span class=""></span>  
+                        <span class=""></span>    
+                        <span class=""></span>
+                    {% elif com.grade == 3 %}
+                        <span class="active"></span>	
+                        <span class="active"></span>    
+                        <span class="active"></span>  
+                        <span class=""></span>    
+                        <span class=""></span>       
+                    {% elif com.grade == 4 %}   
+                        <span class="active"></span>	
+                        <span class="active"></span>    
+                        <span class="active"></span>    
+                        <span class="active"></span>    
+                        <span class=""></span>
+                    {% else %}
                         <span class="active"></span>	
                         <span class="active"></span>    
                         <span class="active"></span>  
                         <span class="active"></span>    
                         <span class="active"></span>
+                    {% endif %}
+                        <!-- <span class="active"></span>	
+                        <span class="active"></span>    
+                        <span class="active"></span>  
+                        <span class="active"></span>    
+                        <span class=""></span> -->
                     </div>
                 </div>
                 <div class="line"></div>
                 <div class="commentText">
-                    <p class="">Крутой магазин всем рекомендую преобрести iPhone. Это лучший телефон в мире! </p>
+                    <p>{{ com.description }} </p>
                 </div>
             </div>
-            
+            {% empty %}
+            <p>None comments!</p>
+            {% endfor %}
         </div>
         <div class="col-6 themed-grid-col mb-3 formcomment bg-dark">
-            <form method="post">
+            <form method="POST">
                 {% csrf_token %}
                 <h2 class="text-center mt-3"> Добавьте комментарий</h2>
                 <div class="input-group input-group-lg mt-5">
@@ -238,7 +271,7 @@ button:hover .liquid {
                 </div>
                 <div class="input-group input-group-lg mt-5">
                     <span class="badge bg-secondary ts bg-warning" id="inputGroup-sizing-lg">Комментарий</span>
-                    <textarea class="form-control ms" name="Comment" required placeholder="Leave a comment here" id="floatingTextarea" minlength="10px" maxlength="300px"></textarea>
+                    <textarea class="form-control ms" name="Comment" required placeholder="Leave a comment here" id="floatingTextarea" minlength="10px" maxlength="250px"></textarea>
                 </div>
                 <div class="input-group input-group-lg mt-5">
                     <span class="badge bg-secondary ts bg-warning" id="inputGroup-sizing-lg">Оценка</span>
@@ -255,11 +288,14 @@ button:hover .liquid {
                         <label for="star-1" title="Оценка «1»"></label>
                     </div>
                 </div>
+                <input type="text" name="Date" value="{% now "Y-m-d" %}" hidden>
 
                 <button class="mt-5 mx-auto" type="submit">
                     <span>Отправить</span>
                     <div class="liquid"></div>
                 </button>
+
+               
             </form>
         </div>
       </div>

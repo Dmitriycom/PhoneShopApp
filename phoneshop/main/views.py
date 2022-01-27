@@ -1,6 +1,6 @@
 from math import prod
 from django.shortcuts import render
-from .models import TopPhone, ImageCarousel, ProductCatalog
+from .models import TopPhone, ImageCarousel, ProductCatalog, Comment
 
 
 def index(request):
@@ -21,7 +21,21 @@ def product(request, productid=1):
 
     
 def reviews(request):
-    return render(request, "main/comments.html")
+    if request.method == "POST":
+        comment = Comment()
+        comment.name = request.POST.get('Name')
+        comment.date = request.POST.get('Date')
+        try:
+            comment.grade = request.POST.get('rating') if int(request.POST.get('rating')) > 0 else 4    
+        except:
+            comment.grade = 3
+        comment.description = request.POST.get('Comment')
+        comment.save()
+        comments = Comment.objects.all()
+        return render(request, "main/comments.html", {"comments": comments})
+    else:
+        comments = Comment.objects.all()
+        return render(request, "main/comments.html",  {"comments": comments})
 
 
 def about(request):

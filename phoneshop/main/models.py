@@ -36,3 +36,18 @@ class ProductCatalog(models.Model):
     class Meta:
         verbose_name = 'Каталог товара'
         verbose_name_plural = 'Каталог товара'
+
+
+class Comment(models.Model):
+    name = models.CharField('Имя', max_length=30)
+    date = models.DateField('Дата')
+    grade = models.IntegerField('Оценка')
+    description = models.TextField('Описание', max_length=250)
+
+    def __str__(self) -> str:
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+
