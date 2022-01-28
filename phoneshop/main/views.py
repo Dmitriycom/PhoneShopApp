@@ -41,3 +41,5 @@ def reviews(request):
 def about(request):
     return render(request, "main/about.html")
 
+def account(request):
+    return render(request, "main/account.html")

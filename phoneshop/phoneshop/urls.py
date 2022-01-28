@@ -9,4 +9,5 @@ urlpatterns = [
     re_path(r'^product/(?P<productid>\d+)/', views.product, name='product'),
     re_path(r'^reviews$', views.reviews, name='reviews'),
     re_path(r'^about$', views.about, name='about'),
+    re_path(r'^account$', views.account, name='account'),
 ]
