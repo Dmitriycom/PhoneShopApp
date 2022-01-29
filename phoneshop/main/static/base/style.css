@@ -1,0 +1,200 @@
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+.urlbtn { 
+    color: white;
+
+}
+.ylw{
+    color: black;
+}
+
+
+.review{
+    width: 630px;
+    height: 130px;
+    background-color: thistle;
+    padding-top: 5px;
+    padding-left: 5px;  
+}
+
+.info{
+    width: 100px;
+    height: 120px;
+    background-color:none;
+    float: left;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    font-family:'Courier New', Courier, monospace;
+    
+}
+.info h5 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.07em;
+}
+.info h7{
+    font-size: 14px;
+}
+.line{
+    height: 120px;
+    width: 1px;
+    background-color: rgba(83, 82, 82, 0.548);
+    float:left;
+    margin-left: 10px;
+}
+
+.commentText{
+    width: 500px;
+    height: 120px;
+    background-color: none;
+    float: right;
+    margin-right: 5px;
+    
+}
+.commentText p{
+    margin: 15px;
+}
+
+.formcomment{
+    height: 715px;
+    border-radius: 25px;
+    color:white;
+}
+.ts{
+    font-size: 30px;
+}
+.ms{
+    max-height: 300px;
+}
+
+.rating-area {
+	overflow: hidden;
+	width: 265px;
+	margin: 0 auto;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 42px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 32px;
+	line-height: 32px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
+}
+
+button {
+ position: relative;
+ padding: 19px 36px;
+ display: block;
+ text-decoration: none;
+ text-transform: uppercase;
+ overflow: hidden;
+ border-radius: 40px;
+ border: none;
+}
+
+button span {
+ position: relative;
+ color: #fff;
+ font-family: Arial;
+ letter-spacing: 8px;
+ z-index: 1;
+}
+
+button .liquid {
+ position: absolute;
+ top: -80px;
+ left: 0;
+ width: 100%;
+ height: 200px;
+ background: #FCC20A;
+ box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+ transition: .5s;
+}
+
+button .liquid::after,
+button .liquid::before {
+ content: '';
+ width: 200%;
+ height: 200%;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ transform: translate(-50%, -75%);
+ background: #fff;
+}
+
+button .liquid::before {
+ border-radius: 45%;
+ background: rgba(20, 20, 20, 1);
+ animation: animate 5s linear infinite;
+}
+
+button .liquid::after {
+ border-radius: 40%;
+ background: rgba(20, 20, 20, .5);
+ animation: animate 10s linear infinite;
+}
+
+button:hover .liquid {
+ top: -120px;
+}
+
+@keyframes animate {
+ 0% {
+  transform: translate(-50%, -75%) rotate(0deg);
+ }
+
+ 100% {
+  transform: translate(-50%, -75%) rotate(360deg);
+ }
+}
+
+.rating-result {
+	width: 80px;
+    height: 30px;
+	margin: 0 auto;
+}
+.rating-result span {
+	padding: 0;
+	font-size: 15px;
+	margin: 0 -3px;
+	line-height: 1;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-result > span:before {
+	content: '★';
+}
+.rating-result > span.active {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}

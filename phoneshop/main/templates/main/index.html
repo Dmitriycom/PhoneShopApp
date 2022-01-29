@@ -1,0 +1,66 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{%  block title %}Интернет-магазин телефонов{% endblock %}
+{%  block LinkViewMain %}secondary{% endblock %}
+{%  block LinkViewProduct %}white{% endblock %}
+{%  block LinkView3 %}white{% endblock %}
+{%  block LinkViewReviews %}white{% endblock %}
+{%  block LinkViewAbout %}white{% endblock %}
+{%  block link %} <link rel="stylesheet" type="text/css" href="{% static 'index/style.css' %}"> {% endblock %}
+
+{% block content %}
+
+  <div id="carouselExampleDark" class="carousel carousel-dark slide header" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner w-100 text-center">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{{firstimg.url}}" class="d-block w-100" alt="..." height="400px" >
+      </div>
+       <div class="carousel-item " data-bs-interval="2000">
+        <img src="https://www.neuf.tv/wp-content/uploads/2021/09/Les-coques-iPhone-12-conviennent-elles-au-nouvel-iPhone-13.jpg" class="d-block w-100" alt="..." height="800px">    
+      </div> 
+      <div class="carousel-item " data-bs-interval="2000">
+        <img src="https://photos5.appleinsider.com/gallery/44758-86981-000-lead-iPhone-13-xl.jpg" class=" d-block w-100" alt="..." height="400px">
+      </div> 
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Popular phones</h2><br>
+    
+    <div class="row row-cols-lg-3 align-items-stretch g-4 py-5 p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">   
+        {% for value in phones %}
+        <div class="col">
+            <div class="product-wrap ">
+                <div class="product-item">
+                <img src="{{ value.url }}">
+                <div class="product-buttons">
+                    <a href="{{ value.urltoprodust }}" class="button">В корзину</a>
+                </div>              
+                </div>
+                <div class="product-title">
+                <a href="">{{ value.name }}</a>
+                <span class="product-price p-1 mb-3 bg-warning text-dark">$ {{ value.cost }}</span>
+                </div>
+            </div> 
+        </div> 
+        {% endfor %} 
+    </div>
+  </div> 
+
+ 
+
+{% endblock %}

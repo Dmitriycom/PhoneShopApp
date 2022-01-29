@@ -1,7 +1,5 @@
-from math import prod
 from django.shortcuts import render
 from .models import TopPhone, ImageCarousel, ProductCatalog, Comment
-
 
 def index(request):
     phones = TopPhone.objects.all()
@@ -41,5 +39,3 @@ def reviews(request):
 def about(request):
     return render(request, "main/about.html")
 
-def account(request):
-    return render(request, "main/account.html")

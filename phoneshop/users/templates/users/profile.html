@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+{% load crispy_forms_tags %}
+
+{%  block title %}Регистрация{% endblock %}
+{%  block LinkViewMain %}white{% endblock %}
+{%  block LinkViewProduct %}white{% endblock %}
+{%  block LinkView3 %}white{% endblock %}
+{%  block LinkViewReviews %}white{% endblock %}
+{%  block LinkViewAbout %}white{% endblock %}
+
+{% block content %}
+    <div class="content-section container" >
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" width="250px" height="250px">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+
+    </div>
+{% endblock content %}
